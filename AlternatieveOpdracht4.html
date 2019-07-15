@@ -1,0 +1,57 @@
+<html>
+   <head>   
+       <script>
+        // global variabelen; in meerdere functies nodig
+        var onevenGetallen = [];
+        var evenGetallen = [];
+       
+       /* check() controleert of ingevoerde getal even of niet even is
+        & pushed getal in de even of oneven array
+        & geeft ingevoerde getal mee aan printGetal(), welke de even of oneven array met het ingevoerde getal print */
+        function check(){
+            var invoer = document.getElementById("invoerveld");
+            console.log(invoer.value);
+
+            if(invoer.value %2 == 0){
+                evenGetallen.push(invoer.value);
+                printGetal(evenGetallen);
+                
+            }else{
+                onevenGetallen.push(invoer.value);
+                printGetal(onevenGetallen);
+            }
+        }
+        // print array met het laatst ingevoerde getal
+        function printGetal(hetGetal){
+            switch(hetGetal){
+                case evenGetallen:
+
+                    var deEvenDiv = document.getElementById("evendiv");
+                    deEvenDiv.innerHTML = evenGetallen;
+                    console.log(evenGetallen);
+                    break;
+
+                case onevenGetallen:
+
+                    var deOddDiv = document.getElementById("onevendiv");
+                    deOddDiv.innerHTML = onevenGetallen;
+                    console.log(onevenGetallen);
+            }
+        }
+       </script>
+       <style>
+        div {
+            border: 2px solid red;
+        }
+       </style>
+   </head>
+   <body>
+        Odd/Even checker<br><br>
+        <input type=text id=invoerveld>
+        <button onclick=check()>Check</button><br><br>
+        Odd
+        <div id=onevendiv> - </div><br>
+        Even
+        <div id=evendiv> - </div>
+   </body>
+</html>
